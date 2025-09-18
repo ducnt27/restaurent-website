@@ -1,0 +1,155 @@
+{{ 'hero-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="hero-banner page-width color-{{ section.settings.color_schema }} gradient section-{{ section.id }}-padding">
+  <div class="hero-banner__inner">
+    <div class="hero-banner__content">
+      {% if section.settings.sub_heading != blank %}
+        <p class="hero-banner__subheading">{{ section.settings.sub_heading }}</p>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="hero-banner__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="hero-banner__description">{{ section.settings.description |  newline_to_br}}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="hero-banner__btn">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+    <div class="hero-banner__media">
+      <div class="hero-banner__media-inner">
+        {% if section.settings.main_image %}
+        <span class="hero-banner__media-price">{{ section.settings.price_text }}</span>
+        <div class="hero-banner__main-image">
+          {{
+            section.settings.main_image
+            | image_url: width: 600
+            | image_tag: alt: section.setting.main_image, widths: '165, 360, 535, 600'
+          }}
+        </div>
+      {% endif %}
+      {% if section.blocks.size > 0 %}
+        <div class="hero-banner__sub-images">
+          {% for block in section.blocks %}
+            {% if block.settings.image %}
+              <div class="hero-banner__sub-image">
+                {{ block.settings.image | image_url: width: 100 | image_tag: alt: block.settings.image, widths: '53, 100'}}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section hero-banner",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub heading"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Our menu"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price text",
+      "default": "Price: $11"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_schema",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sub_image",
+      "name": "Sub image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ],
+      "limit": 5
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero banner"
+    }
+  ]
+}
+{% endschema %}
