@@ -26,9 +26,8 @@
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class="hero-banner__description">{{ section.settings.description }}</div>
+        <div class="hero-banner__description">{{ section.settings.description |  newline_to_br}}</div>
       {% endif %}
-
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="hero-banner__btn">
           {{ section.settings.button_label }}
@@ -36,7 +35,9 @@
       {% endif %}
     </div>
     <div class="hero-banner__media">
-      {% if section.settings.main_image %}
+      <div class="hero-banner__media-inner">
+        {% if section.settings.main_image %}
+        <span class="hero-banner__media-price">{{ section.settings.price_text }}</span>
         <div class="hero-banner__main-image">
           {{
             section.settings.main_image
@@ -45,15 +46,18 @@
           }}
         </div>
       {% endif %}
-      {% if section.block.size > 0 %}
-        <div class="hero-banner_sub-images">
+      {% if section.blocks.size > 0 %}
+        <div class="hero-banner__sub-images">
           {% for block in section.blocks %}
             {% if block.settings.image %}
-              {{ block.setting.image | image_url: width: 100 | image_tag: alt: block.setting.image }}
+              <div class="hero-banner__sub-image">
+                {{ block.settings.image | image_url: width: 100 | image_tag: alt: block.settings.image, widths: '53, 100'}}
+              </div>
             {% endif %}
           {% endfor %}
         </div>
       {% endif %}
+      </div>
     </div>
   </div>
 </div>
