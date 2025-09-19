@@ -1,0 +1,97 @@
+{{ 'image-with-stats.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  .stats-section {
+    background: {% if section.settings.background_image != blank %}
+      url({{ section.settings.background_image | image_url: width: 2000 }}) center/cover no-repeat
+    {% else %}
+      #111114
+    {% endif %};
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding">
+  <div class="stats-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="stats-content page-width">
+    {% for block in section.blocks %}
+      <div class="stats-item">
+        <span class="stats-item__number">{{ block.settings.number }}</span>
+        <span class="stats-item__label">{{ block.settings.label }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "06"
+        },
+        {
+          "type": "richtext",
+          "id": "label",
+          "label": "Label",
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats Section"
+    }
+  ]
+}
+{% endschema %}
