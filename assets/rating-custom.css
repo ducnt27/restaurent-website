@@ -1,0 +1,38 @@
+.rating-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.rating-star__wrapper .rating-star__icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.rating-star__icon.rated-star svg path {
+  fill: #fb8f2c;
+}
+
+@media screen and (min-width: 750px) {
+  .rating-wrapper {
+    gap: 1.2rem;
+  }
+
+  .rating-star__wrapper .rating-star__icon svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .rating-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  .rating-star__wrapper .rating-star__icon svg {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+}

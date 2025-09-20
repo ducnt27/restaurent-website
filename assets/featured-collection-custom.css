@@ -1,0 +1,89 @@
+
+
+.collection__title .title.heading-custom {
+    font-size: 6.4rem;
+    font-weight: 500;
+    line-height: 115.625%;
+    text-transform: capitalize;
+}
+
+.collection .card__heading {
+    padding-bottom: 0.5rem;
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.card__information .price .price__regular {
+    padding-top: 0.3rem;
+    font-family: var(--font-heading-family);
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 141.667%;
+    text-transform: capitalize;
+}
+
+.card__information-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-product__description {
+    color: rgba(var(--color-foreground), 0.80);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 162.5%;
+}
+
+.card-information .rating-star__icon {
+    line-height: 0;
+}
+
+.card__information-order {
+  position: relative;
+  padding-bottom: 0.2rem;
+  display: inline-block;
+  color: rgb(var(--color-foreground));
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 162.5%;
+  text-decoration: none;
+  border-bottom: 0.1rem solid rgb(var(--color-button-text));
+}
+
+.collection__description {
+    margin: 0 auto;
+    max-width: 60.1rem;
+}
+
+.collection__view-all .button {
+    padding: 0 0 0.6rem 0;
+    min-height: 0;
+    border-bottom: 0.1rem solid rgb(var(--color-button-text));
+}
+
+
+.collection__view-all .button span{
+    margin-left: 1.3rem;
+}
+
+@media screen and (max-width: 989px) {
+    .collection__title .title.heading-custom {
+        font-size: 4.6rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .collection__title .title.heading-custom {
+        font-size: 3.4rem;
+        line-height: 129.412%;
+    }
+
+    .card-product__description  {
+        font-size: 1.4rem;
+    }
+
+    .collection__description {
+        padding-top: 1rem;
+    }
+}

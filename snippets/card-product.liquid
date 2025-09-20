@@ -204,7 +204,14 @@
               </p>
             {%- endif -%}
 
+            <span class="card-product__description">{{ card_product.description }}</span>
+
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            
+            <div class="card__information-bottom">
+              <span class="card__information-order">Order Now</span>
+              {% render 'rating-custom' rating: 4 %}
+            </div>
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
                 {% liquid
