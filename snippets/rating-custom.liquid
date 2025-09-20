@@ -1,0 +1,18 @@
+{{ 'rating-custom.css' |  asset_url |  stylesheet_tag }}
+
+{%  assign full_stars = rating | round  %}
+{% assign empty_stars = 5 |  minus: full_stars  %}
+<div class="rating-wrapper">
+  <div class="rating-star__wrapper">
+    {% for i in (1..full_stars) %}
+      <span class="rating-star__icon rated-star">
+        {{ 'star-icon.svg' | inline_asset_content }}
+      </span>
+    {% endfor %}
+    {% for i in (1..empty_stars) %}
+      <span class="rating-star__icon">
+        {{ 'star-icon.svg' | inline_asset_content }}
+      </span>
+    {% endfor %}
+  </div>
+</div>
