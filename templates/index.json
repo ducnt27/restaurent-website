@@ -9,76 +9,117 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero_banner_Q4AkVH": {
+      "type": "hero-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "sub_image_ULezfK": {
+          "type": "sub_image",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/image_90_480c3302-392b-429f-b1b1-7db116e1b03a.png"
           }
         },
-        "button": {
-          "type": "buttons",
+        "sub_image_L8Ltcy": {
+          "type": "sub_image",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/image_77.png"
+          }
+        },
+        "sub_image_VVwi9U": {
+          "type": "sub_image",
+          "settings": {
+            "image": "shopify://shop_images/image_91.png"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "sub_image_ULezfK",
+        "sub_image_L8Ltcy",
+        "sub_image_VVwi9U"
       ],
+      "name": "Hero banner",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "sub_heading": "Hi, new friend!",
+        "heading": "<p>We do not cook, we </p><p>create your emotions!</p>",
+        "description": "There's evidence that cooking, like other creative practices, can boost \nwell-being, self-esteem, and other measures of mental health.",
+        "button_label": "Our menu",
+        "button_link": "shopify://collections/most-popular-food",
+        "price_text": "Price: $11",
+        "main_image": "shopify://shop_images/image_89.png",
+        "color_scheme": ""
+      }
+    },
+    "image_with_stats_mptKV7": {
+      "type": "image-with-stats",
+      "blocks": {
+        "stat_EJcGaC": {
+          "type": "stat",
+          "settings": {
+            "number": "06",
+            "label": "<p>Number </p><p>Restaurant</p>"
+          }
+        },
+        "stat_wANbJQ": {
+          "type": "stat",
+          "settings": {
+            "number": "68",
+            "label": "<p>New Food</p><p>Menu Dishes</p>"
+          }
+        },
+        "stat_6mz9rb": {
+          "type": "stat",
+          "settings": {
+            "number": "36",
+            "label": "<p>Years of </p><p>Experience</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stat_EJcGaC",
+        "stat_wANbJQ",
+        "stat_6mz9rb"
+      ],
+      "name": "Stats Section",
+      "settings": {
+        "background_image": "shopify://shop_images/Rectangle_26.png",
+        "color_scheme": "scheme-2",
+        "padding_top": 32,
+        "padding_bottom": 100
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "collection": "most-popular-food",
+        "products_to_show": 3,
+        "title": "Most popular food",
         "heading_size": "h2",
-        "description": "",
+        "description": "<p>A list of most popular Bangladeshi food including mains, drinks, and deserts you must try while in Bangladesh, for an authentic experience. Check now!<br/><br/></p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "image_banner",
+    "hero_banner_Q4AkVH",
+    "image_with_stats_mptKV7",
     "featured_collection"
   ]
 }
