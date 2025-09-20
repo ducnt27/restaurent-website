@@ -115,11 +115,70 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "opening_time_ziJVzX": {
+      "type": "opening-time",
+      "blocks": {
+        "day_tiem_eXVC7J": {
+          "type": "day_tiem",
+          "settings": {
+            "day": "Mon",
+            "time": "17:00 to 23:00"
+          }
+        },
+        "day_tiem_QqLjRq": {
+          "type": "day_tiem",
+          "settings": {
+            "day": "Wed",
+            "time": "17:00 to 23:00"
+          }
+        },
+        "day_tiem_7cLNfW": {
+          "type": "day_tiem",
+          "settings": {
+            "day": "Thu",
+            "time": "14:00 to 18:00"
+          }
+        },
+        "day_tiem_3RcLhC": {
+          "type": "day_tiem",
+          "settings": {
+            "day": "Fr",
+            "time": "16:00 to 24:00"
+          }
+        },
+        "day_tiem_WDyGpn": {
+          "type": "day_tiem",
+          "settings": {
+            "day": "Sat/Sun",
+            "time": "20:00 to 4:00"
+          }
+        }
+      },
+      "block_order": [
+        "day_tiem_eXVC7J",
+        "day_tiem_QqLjRq",
+        "day_tiem_7cLNfW",
+        "day_tiem_3RcLhC",
+        "day_tiem_WDyGpn"
+      ],
+      "name": "Contact & Opening Time",
+      "settings": {
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "open_overlay": true,
+        "background_image": "shopify://shop_images/Rectangle_76.png",
+        "color_scheme": "scheme-2",
+        "left_heading": "<p>Find us gere</p>",
+        "contact": "Avenue Marina 34568 NY (U.S)\n+0123 456 7890\nhellouihut@gmail.com",
+        "right_heading": "<p>Openning Times</p>"
+      }
     }
   },
   "order": [
     "hero_banner_Q4AkVH",
     "image_with_stats_mptKV7",
-    "featured_collection"
+    "featured_collection",
+    "opening_time_ziJVzX"
   ]
 }
