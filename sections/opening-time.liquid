@@ -1,0 +1,127 @@
+{{ 'opening-time.css' | asset_url |  stylesheet_tag}}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+  .contact-box {
+    background: url({{ section.settings.background_image |  image_url: width: 600  }}) center/cover no-repeat;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }}">
+  <div class="contact-opening page-width section-{{ section.id }}-padding">
+    <div class="contact-opening__inner">
+      <div class="contact-box">
+        <div class="overlay "></div>
+        <div class="contact-box__content">
+          <h3 class="contact-box__heading">{{ section.settings.left_heading }}</h3>
+          <p class="contact-box__contact">{{ section.settings.contact |  newline_to_br}}</p>
+        </div>
+      </div>
+      <div class="opening-box">
+        <h3 class="opening-box__heading">{{ section.settings.right_heading }}</h3>
+        <ul>
+          {% for block in section.blocks %}
+            <li class="opening-item">
+              <span class="opening-item__day">{{ block.settings.day }}</span>
+              <span class="opening-item__time">{{ block.settings.time }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Contact & Opening Time",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "checkbox",
+      "id": "open_overlay",
+      "label": "Open overlay in contact box",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color"
+    },
+    {
+        "type": "richtext",
+        "id": "left_heading",
+        "label": "Left Heading"
+    },
+    {
+        "type": "textarea",
+        "id": "contact",
+        "label": "Contact"
+    },
+    {
+        "type": "richtext",
+        "id": "right_heading",
+        "label": "Right Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "day_tiem",
+      "name": "Day & Time",
+      "settings": [
+        {
+          "type": "text",
+          "id": "day",
+          "label": "Day"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact & Opening Time"
+    }
+  ]
+}
+{% endschema %}
